@@ -12,14 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Salario {
+
     @Autowired
     private GeradorDeSalarios geraSalario;
 
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET,
             path = "salary-developer", produces = MediaType.APPLICATION_JSON)
-
     public ResponseEntity<?> getSalarioProgramador() {
+        return new ResponseEntity<>(geraSalario.salarioProgramador(), HttpStatus.OK);
+    }
+    @RequestMapping(method = RequestMethod.GET,
+            path = "todos-salario", produces = MediaType.APPLICATION_JSON)
+    public ResponseEntity<?> getTodosSalarios() {
         return new ResponseEntity<>(geraSalario.todosSalarios(), HttpStatus.OK);
     }
 }

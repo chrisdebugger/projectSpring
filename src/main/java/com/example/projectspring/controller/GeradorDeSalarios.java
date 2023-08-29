@@ -7,10 +7,14 @@ import java.math.BigDecimal;
 
 @Controller
 public class GeradorDeSalarios {
-    public Salarios todosSalarios() {
+    public Salarios salarioProgramador() {
         Salarios salarios = new Salarios();
-        salarios.setMeuSalarioDeStreamer(new BigDecimal("10.00"));
-        salarios.setMeuSalarioDeProgramador(new BigDecimal("15.00"));
+        salarios.setMeuSalarioDeProgramador(new BigDecimal("10.00"));
+        return salarios;
+    }
+
+    public Salarios todosSalarios() {
+        Salarios salarios = new Salarios(new BigDecimal("10.00"), new BigDecimal("20.00"));
         return salarios;
     }
 }
